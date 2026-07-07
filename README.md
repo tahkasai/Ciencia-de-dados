@@ -29,3 +29,28 @@ print("Mediana:", df.Idade.median())
 print("Moda:", df.Idade.mode().tolist())
 ```
 
+## Distribuição de dados
+> histograma: ferramenta para avaliar a distribuição dos dados. Ele consiste em um gráfico de barras vertical que apresentam distribuição de frequência dos dados.
+
+Existem três tipos de distribuição, sendo elas:
+* Simétrica, onde a medidas de tendencia tem valores iguais.
+* Assimetrica à direita, onde: Moda -> Mediana -> Media
+* Assimetrica à esquerda, onde: Media -> Mediana -> Moda. 
+
+### Exemplo de código
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('arquivo.csv')
+
+plt.hist(df['Idade'].dropna(), bins=10) # dropna() se tiver um dado incompleto, ele ignora
+plt.title('Distribuição de variavies')
+plt.ylabel('Quantidade')
+plt.xlabel('Idades')
+plt.show()
+
+# Salva o histograma como png
+plt.savefig('Distribuição de dados/Histograma.png', dpi=300, bbox_inches='tight')
+plt.close()
+```
